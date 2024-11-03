@@ -8,3 +8,92 @@ Mais:
 - Link para criar conta.
 
 Resolves: #PROJ-3340 #PROJ-4567
+
+
+chore: Instalar a biblioteca Material UI e suas dependências no projeto
+
+Mais:
+- Adicionada biblioteca MUI;
+- Instaladas dependências necessárias do MUI;
+
+Resolves: #15
+
+chore: Criar estrutura de pastas no projeto
+
+Mais:
+- Adicionadas as pastas estruturais na pasta `src`:
+  - `components`: para os componentes de UI
+  - `data`: para armazenamento de dados estáticos ou mockados
+  - `interfaces`: para definição de tipos e interfaces (TypeScript)
+  - `services`: para lógica de serviços e chamadas de API
+  - `tests`: para arquivos de teste
+  - `utils`: para funções utilitárias e helpers
+   - `views`: para organizar as páginas principais e layouts do aplicativo
+
+Resolves: #14
+
+
+fix: Adicionar @emotion/react e @emotion/styled como dependências do MUI
+
+Correção da tarefa 15:
+- Incluídas as bibliotecas @emotion/react e @emotion/styled, necessárias para o funcionamento correto do Material UI.
+- Essas dependências são essenciais para o sistema de estilização do MUI.
+
+Resolves: #15
+
+
+chore: Adicionar arquivo tsconfig.json para configuração do TypeScript
+
+Mais:
+- Criado o arquivo `tsconfig.json` para configurar o TypeScript no projeto.
+- Configurações incluem suporte para JSX, resolução de módulos Node e configurações de segurança e consistência no código.
+
+Resolves: #extra
+
+
+Instale a biblioteca SASS dentro do projeto:
+Instale a biblioteca sass para poder configurar o scss em seu projeto.
+
+Altere os arquivos do projeto .css para .scss.
+Após instalar altere os arquivos .css do projeto para .scss e teste o projeto e veja se está aceitando o .scss.
+
+Instale a biblioteca Vite em seu projeto:
+Instale essa biblioteca para podermos configurar o vite em um projeto já existente.
+
+Altere seu projeto para usar Vite que foi instalado:
+Agora que você já tem o projeto funcional, altere-o para a estrutura do vite.ts.
+
+Instale a biblioteca react-router-dom dentro do projeto:
+Instale a biblioteca de rotas para podermos configurar rotas dentro do projeto.
+
+Configure a biblioteca de rotas react-router-dom:
+Configure a biblioteca do React Router Dom em seu projeto para podermos criar rotas dentro dele.
+
+Configure uma rota de Home para o projeto:
+Crie uma pasta chamada views e dentro dela crie um arquivo Home.tsx e adicione nela uma estrutura de React Hooks pronta para se tornar uma tela de home no futuro.
+
+Configure uma rota de Sign In para o projeto:
+Crie dentro da pasta views um arquivo SignIn.tsx e adicione nela uma estrutura de React Hooks pronta para se tornar uma tela de login no futuro.
+
+Configure uma rota de Sign Up para o projeto:
+Crie dentro da pasta views um arquivo SignUp.tsx e adicione nela uma estrutura de React Hooks pronta para se tornar uma tela de cadastro no futuro.
+
+Configure uma rota de Dashboard para o projeto:
+Crie dentro da pasta views um arquivo Dashboard.tsx e adicione nela uma estrutura de React Hooks pronta para se tornar uma tela de relatórios no futuro.
+
+Configure uma rota de Settings para o projeto:
+Crie dentro da pasta views um arquivo Settings.tsx e adicione nela uma estrutura de React Hooks pronta para se tornar uma tela de configurações no futuro.
+
+Configure uma rota de Form para o projeto:
+Crie dentro da pasta views um arquivo Form.tsx e adicione nela uma estrutura de React Hooks pronta para se tornar uma tela de cadastro e edição de dados no futuro.
+
+Configure rotas públicas e privadas no projeto:
+Após criar todas as telas, altere a estrutura de rotas para ter rotas privadas e públicas, onde SignIn e SignUp serão rotas públicas e as demais telas serão rotas privadas.
+
+Crie as demais pastas estruturais do projeto:
+Assim como na aula, adicione na pasta src as pastas components, data, interfaces, services, tests e utils
+
+
+
+Crie um componente de button dentro do seu projeto:
+Para testar se o MUI está funcionando crie um componente de button dentro do projeto.
