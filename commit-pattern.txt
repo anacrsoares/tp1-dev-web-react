@@ -98,6 +98,13 @@ Mais:
 
 Resolves: #1
 
+
+feat: criar componente de botão para testar o funcionamento do MUI
+
+Mais:
+  - Criei um componente de botão (`Button`) dentro do projeto para testar se o Material-UI (MUI) está funcionando corretamente.
+  Resolves: #16
+
 ----------------------------------
 apagar
 
