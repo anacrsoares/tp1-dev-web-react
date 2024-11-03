@@ -50,6 +50,47 @@ Mais:
 
 Resolves: #extra
 
+chore: Instalar a biblioteca react-router-dom para configuração de rotas
+
+Mais:
+- Adicionada a biblioteca `react-router-dom` ao projeto para configurar e gerenciar rotas.
+- Preparação para implementar navegação entre diferentes páginas e componentes
+- Comandos:
+    - yarn add react-router-dom
+    - yarn add @types/react-router-dom --dev
+
+Resolves: #5
+
+
+
+chore: Configurar rotas e estrutura de views no projeto
+
+Mais:
+- Configurada a biblioteca `react-router-dom` para gerenciamento de rotas.
+- Criadas rotas para as seguintes páginas:
+  - `Home`: pasta `views/Home.tsx` com estrutura inicial para futura tela de home.
+  - `SignIn`: pasta `views/SignIn.tsx` com estrutura inicial para futura tela de login.
+  - `SignUp`: pasta `views/SignUp.tsx` com estrutura inicial para futura tela de cadastro.
+  - `Dashboard`: pasta `views/Dashboard.tsx` com estrutura inicial para futura tela de relatórios.
+  - `Settings`: pasta `views/Settings.tsx` com estrutura inicial para futura tela de configurações.
+  - `Form`: pasta `views/Form.tsx` com estrutura inicial para futura tela de cadastro/edição de dados.
+- Configuradas rotas públicas e privadas:
+  - `SignIn` e `SignUp` como rotas públicas.
+  - `Home`, `Dashboard`, `Settings` e `Form` como rotas privadas, acessíveis apenas para usuários autenticados.
+  - Componentização dos arquivos tsx
+
+Resolves: #6, #7, #8, #9, #10, #11, #12, #13
+
+
+chore: Instalar a biblioteca Vite para configuração do projeto
+
+Mais:
+- Adicionada a biblioteca Vite ao projeto para utilizar um ambiente de desenvolvimento rápido e eficiente.
+- Preparação para configurar o Vite em um projeto existente.
+
+Resolves: #3
+----------------------------------
+apagar
 
 Instale a biblioteca SASS dentro do projeto:
 Instale a biblioteca sass para poder configurar o scss em seu projeto.
