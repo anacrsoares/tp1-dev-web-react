@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { MyButton, Button16 } from "./components";
 import Routes from "./routes";
 
