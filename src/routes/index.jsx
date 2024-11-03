@@ -43,7 +43,7 @@ const router = createBrowserRouter(
           loader={() => handleVerificationProtected()}
         />
         <Route
-          path="type/:id"
+          path=":type/:id"
           element={<Forms />}
           loader={() => handleVerificationProtected()}
         />
