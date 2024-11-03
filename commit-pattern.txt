@@ -89,6 +89,15 @@ Mais:
 - Preparação para configurar o Vite em um projeto existente.
 
 Resolves: #3
+
+
+chore: Instalar a biblioteca SASS para suporte a SCSS no projeto
+
+Mais:
+- Adicionada a biblioteca `sass` para permitir o uso de arquivos SCSS.
+
+Resolves: #1
+
 ----------------------------------
 apagar
 
