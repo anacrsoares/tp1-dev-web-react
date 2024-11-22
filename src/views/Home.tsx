@@ -10,6 +10,8 @@ import {
   FormControlLabel,
   Checkbox,
   Container,
+  Fab,
+  IconButton,
 } from "@mui/material";
 import { useAppContext } from "../Context";
 import { DatePickerComponent, DateTimePickerComponent } from "../components";
@@ -18,6 +20,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import shopping from "../assets/img/shopping-store.png";
+import cart from "../assets/img/cart.png";
 
 const Home: React.FC = () => {
   const { chooseLanguage, showAlertMessage } = useAppContext();
@@ -279,6 +282,26 @@ const Home: React.FC = () => {
           </p>
           <DatePickerComponent format="DD / MM / YYYY" />
           <DateTimePickerComponent format="DD / MM / YYYY HH:mm" ampm={false} />
+        </div>
+
+        <div>
+          <h2>9. Crie um componente de Fab em seu projeto</h2>
+          <p>
+            Crie e teste seus componentes de datePicker e DateTimePicker dentro
+            do projeto para confirmar que eles funcionam conforme o esperado.
+          </p>
+
+          <Fab>
+            <Avatar src={cart} sx={{ width: 48, height: 48 }}></Avatar>
+          </Fab>
+        </div>
+
+        <div>
+          <h2>11. Crie um componente de IconButton em seu projeto</h2>
+          <p>
+            Crie e teste seus componentes de datePicker e DateTimePicker dentro
+            do projeto para confirmar que eles funcionam conforme o esperado.
+          </p>
         </div>
 
         <div>
