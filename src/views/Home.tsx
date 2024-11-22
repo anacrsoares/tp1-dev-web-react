@@ -10,18 +10,28 @@ import {
   FormControlLabel,
   Checkbox,
   Container,
+  Fab,
+  IconButton,
 } from "@mui/material";
 import { useAppContext } from "../Context";
-import { DatePickerComponent, DateTimePickerComponent } from "../components";
+import {
+  DatePickerComponent,
+  DateTimePickerComponent,
+  SwitchComponent,
+  TabComponent,
+} from "../components";
 import { useState, useEffect } from "react";
-import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
 import shopping from "../assets/img/shopping-store.png";
+import cart from "../assets/img/cart.png";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Home: React.FC = () => {
   const { chooseLanguage, showAlertMessage } = useAppContext();
   const [open, setOpen] = useState(false);
+
+  const label = { inputProps: { "aria-label": "Size switch demo" } };
 
   // Configura o timeout apenas uma vez usando useEffect
   useEffect(() => {
@@ -282,6 +292,29 @@ const Home: React.FC = () => {
         </div>
 
         <div>
+          <h2>9. Crie um componente de Fab em seu projeto</h2>
+          <p>
+            Crie e teste seus componentes de datePicker e DateTimePicker dentro
+            do projeto para confirmar que eles funcionam conforme o esperado.
+          </p>
+
+          <Fab>
+            <Avatar src={cart} sx={{ width: 48, height: 48 }}></Avatar>
+          </Fab>
+        </div>
+
+        <div>
+          <h2>11. Crie um componente de IconButton em seu projeto</h2>
+          <p>
+            Crie e teste seus componentes de datePicker e DateTimePicker dentro
+            do projeto para confirmar que eles funcionam conforme o esperado.
+          </p>
+          <IconButton aria-label="cart">
+            <ShoppingCartIcon fontSize="large" />
+          </IconButton>
+        </div>
+
+        <div>
           <h2>12. Crie um componente de SnackBar em seu projeto</h2>
           <p>
             Crie e teste seu componente de snackBar dentro do projeto para
@@ -304,6 +337,24 @@ const Home: React.FC = () => {
             onClose={handleClose}
             message="Você está na página home."
           />
+        </div>
+
+        <div>
+          <h2>13. Crie um componente de Switch em seu projeto</h2>
+          <p>
+            Crie e teste seu componente de switch dentro do projeto para
+            confirmar que ele funciona conforme o esperado.
+          </p>
+          <SwitchComponent />
+        </div>
+
+        <div>
+          <h2>14. Crie um componente de Tab em seu projeto</h2>
+          <p>
+            Crie e teste seu componente de tab dentro do projeto para confirmar
+            que ele funciona conforme o esperado.
+          </p>
+          <TabComponent />
         </div>
       </div>
     </div>
