@@ -8,6 +8,7 @@ import {
 import Dashboard from "../views/Dashboard";
 import Forms from "../views/Forms";
 import Home from "../views/Home";
+import Hometp2 from "../views/Hometeste";
 import Settings from "../views/Settings";
 import Signin from "../views/Signin";
 import Signup from "../views/Signup";
@@ -57,6 +58,11 @@ const router = createBrowserRouter(
       <Route
         path="signup"
         element={<Signup />}
+        loader={() => isAuthenticated()}
+      />
+      <Route
+        path="hometp2"
+        element={<Hometp2 />}
         loader={() => isAuthenticated()}
       />
     </Route>
