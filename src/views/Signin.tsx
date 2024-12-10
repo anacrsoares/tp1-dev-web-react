@@ -2,6 +2,7 @@ import { useAppContext } from "../../src/Context";
 import { Typography, TextField, Button } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { Link } from "react-router-dom";
+import logo from "../assets/img/logo.png";
 
 const Signin: React.FC = () => {
   const { showAlertMessage, supabase } = useAppContext();

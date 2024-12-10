@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       {/* <MyButton label="Clique Aqui" onClick={() => alert("Botão clicado!")} /> */}
       <AppProvider>
-        <Button16>clique aqui</Button16>
         <Routes />
       </AppProvider>
     </div>
