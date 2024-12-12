@@ -7,10 +7,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { IconButton, Typography } from "@mui/material";
 import baby from "../assets/img/baby.png";
 import { useNavigate } from "react-router-dom";
-import { BorderColor, Height, Padding } from "@mui/icons-material";
 
 import { ACTIONS } from "../constants/actions";
-import { relative } from "path";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();

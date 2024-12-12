@@ -17,6 +17,7 @@ import {
   isAuthenticated,
   handleVerificationProtected,
 } from "../services/authentication";
+
 import Protected from "./protected";
 
 const router = createBrowserRouter(
@@ -25,6 +26,11 @@ const router = createBrowserRouter(
       <Route path="/" element={<Protected />}>
         <Route
           index
+          element={<Home />}
+          loader={() => handleVerificationProtected()}
+        />
+        <Route
+          path="home" // Rota explícita para "/home"
           element={<Home />}
           loader={() => handleVerificationProtected()}
         />
