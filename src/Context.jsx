@@ -2,6 +2,8 @@ import { createContext, useContext } from "react";
 import { Alert } from "@mui/material";
 import { useState } from "react";
 import { SnackBar } from "./components";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 // Configurando o supabase
 import { createClient } from "@supabase/supabase-js";
@@ -18,6 +20,15 @@ const timeoutDuration = 4000;
 
 // 2nd step - Provedor do contexto
 const AppProvider = ({ children }) => {
+  // x step - Internationalization
+  const { t: translate, i18n } = useTranslation();
+
+  const changeLanguage = (lang) => {
+    console.log(lang);
+    i18n.changeLanguage("es");
+    localStorage.setItem("language", lang);
+  };
+
   // 3rd step - functions for shared state
 
   const [snackOpen, setSnackOpen] = useState(false);
@@ -54,10 +65,23 @@ const AppProvider = ({ children }) => {
   // 4rd step - shared state
   const sharedState = {
     chooseLanguage,
+    changeLanguage,
     showSnackMessage,
     showAlertMessage,
     supabase,
+    translate,
   };
+
+  useEffect(() => {
+    const storeLanguage = localStorage.getItem("language");
+
+    if (storeLanguage) {
+      changeLanguage(storeLanguage);
+    } else {
+      const navLang = navigator.language.split("-")[0];
+      changeLanguage(navLang);
+    }
+  }, []);
 
   // 5th step - retornar o useContext sem expor o AppContext
   return (
