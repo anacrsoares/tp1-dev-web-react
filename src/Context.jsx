@@ -24,8 +24,7 @@ const AppProvider = ({ children }) => {
   const { t: translate, i18n } = useTranslation();
 
   const changeLanguage = (lang) => {
-    console.log(lang);
-    i18n.changeLanguage("es");
+    i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);
   };
 

@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { showSnackMessage, supabase } = useAppContext();
+  const { showSnackMessage, supabase, translate } = useAppContext();
 
   const [data, setData] = useState({
     email: {
