@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const { showSnackMessage, supabase } = useAppContext();
+  const { showSnackMessage, supabase, translate } = useAppContext();
 
   const [data, setData] = useState({
     email: {
@@ -53,7 +53,7 @@ const SignIn = () => {
       </Grid>
 
       <Grid item={true} size={{ xs: 12 }} sx={{ ...styles.centerBox }}>
-        <Typography variant="h3">Seja bem-vindo(a)</Typography>
+        <Typography variant="h3">{translate("welcome")}</Typography>
       </Grid>
 
       <Grid
@@ -61,12 +61,11 @@ const SignIn = () => {
         size={{ xs: 12 }}
         sx={{
           ...styles.centerBox,
-
           ...styles.boxAdjustment,
         }}
       >
         <Typography variant="h5">
-          Login
+          {translate("email")}
           <TextField
             label="Digite seu e-mail"
             fullWidth={true}
@@ -86,7 +85,7 @@ const SignIn = () => {
         sx={{ ...styles.centerBox, ...styles.boxAdjustment }}
       >
         <Typography variant="h5">
-          Senha
+          {translate("password")}
           <TextField
             label="Digite sua senha"
             fullWidth={true}
@@ -105,11 +104,11 @@ const SignIn = () => {
         size={{ xs: 12 }}
         sx={{ ...styles.centerBox, ...styles.boxAdjustment }}
       >
-        <Button16 onClick={verifyLogin}>Entrar</Button16>
+        <Button16 onClick={verifyLogin}>{translate("login")}</Button16>
       </Grid>
 
       <Grid item={true} size={{ xs: 12 }}>
-        <Link to="/signup">Cadastrar</Link>
+        <Link to="/signup">{translate("sign-up")}</Link>
       </Grid>
     </Box>
   );

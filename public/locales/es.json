@@ -5,8 +5,8 @@
   "sign-in": "Ingressar",
   "sign-up": "Inscribirse",
   "email": "E-mail",
-  "password": "Confirmar Clave",
-  "confirm-password": "Confirmar senha",
+  "password": "Contraseña",
+  "confirm-password": "Confirmar Contraseña",
   "message-email-required": "E-mail obligatorio.",
   "message-email-invalid-format": "Formato de email no válido.",
   "message-password-required": "Se requiere contraseña.",
@@ -54,5 +54,7 @@
   "min": "Min.",
   "from": "De",
   "to": "Hasta",
-  "days": "Día(s)"
+  "days": "Día(s)",
+  "enterPassword": "Ingrese su contraseña",
+  "enterEmail": "Ingrese su correo electrónico"
 }

@@ -54,5 +54,7 @@
   "min": "Min.",
   "from": "De",
   "to": "Até",
-  "days": "Dia(s)"
+  "days": "Dia(s)",
+  "enterPassword": "Digite sua senha",
+  "enterEmail": "Digite seu e-mail"
 }
