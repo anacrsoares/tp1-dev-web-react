@@ -1,364 +1,200 @@
-import {
-  Button,
-  Snackbar,
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-  Container,
-  Fab,
-  IconButton,
-} from "@mui/material";
-import { useAppContext } from "../Context";
-import {
-  DatePickerComponent,
-  DateTimePickerComponent,
-  SwitchComponent,
-  TabComponent,
-} from "../components";
-import { useState, useEffect } from "react";
-import CloseIcon from "@mui/icons-material/Close";
-import React from "react";
-import shopping from "../assets/img/shopping-store.png";
-import cart from "../assets/img/cart.png";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useTheme } from "@mui/material/styles";
+import { CardNewItem, Grid, MyAvatar, MyBox, CustomList } from "../components";
+
+import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
+import SettingsIcon from "@mui/icons-material/Settings";
+
+import { IconButton, Typography } from "@mui/material";
+import baby from "../assets/img/baby.png";
+import { useNavigate } from "react-router-dom";
+
+import { ACTIONS } from "../constants/actions";
 
 const Home: React.FC = () => {
-  const { chooseLanguage, showAlertMessage } = useAppContext();
-  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const theme = useTheme();
 
-  const label = { inputProps: { "aria-label": "Size switch demo" } };
-
-  // Configura o timeout apenas uma vez usando useEffect
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setOpen(true);
-    }, 2000);
-
-    // Limpa o timeout ao desmontar o componente
-    return () => clearTimeout(timeout);
-  }, []);
-
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return; // Evita fechar o Snackbar se clicar fora
-    }
-    setOpen(false); // Atualiza o estado para fechar o Snackbar
-  };
+  const items = [
+    { action_type: 1 },
+    { action_type: 2 },
+    { action_type: 3 },
+    { action_type: 3 },
+    { action_type: 2 },
+    { action_type: 1 },
+    { action_type: 1 },
+    { action_type: 1 },
+    { action_type: 1 },
+    { action_type: 1 },
+    { action_type: 1 },
+    { action_type: 1 },
+    { action_type: 1 },
+  ];
 
   return (
-    <div>
-      <p>Home</p>
-      <Button onClick={chooseLanguage}>Mudar idioma</Button>
-      <div>
-        <hr />
-        <div>
-          <h1>TP 2</h1>
-          <h2>1. Crie um componente de Alert em seu projeto</h2>
-          <p>
-            Crie e teste seu componente de alert dentro do projeto para
-            confirmar que ele funciona conforme o esperado.
-          </p>
-          <Button
-            onClick={() =>
-              showAlertMessage("success", "Seja bem-vindo(a) à página home")
-            }
-          >
-            Success
-          </Button>
-          <Button
-            onClick={() => showAlertMessage("info", "Você está na página home")}
-          >
-            Info
-          </Button>
-          <Button
-            onClick={() =>
-              showAlertMessage(
-                "warning",
-                "Você precisa estar logado para acessar a página home"
-              )
-            }
-          >
-            Warning
-          </Button>
-          <Button onClick={() => showAlertMessage("error", "Senha incorreta")}>
-            Error
-          </Button>
-        </div>
-
-        <div>
-          <h2>2. Crie um componente de Avatar em seu projeto</h2>
-
-          <p>
-            Crie e teste seu componente de avatar dentro do projeto para
-            confirmar que ele funciona conforme o esperado.
-          </p>
-
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Avatar src={shopping} sx={{ width: 48, height: 48 }} />
-          </div>
-        </div>
-        <h2>3. Crie um componente de Box em seu projeto</h2>
-        <p>
-          Crie e teste seu componente de box dentro do projeto para confirmar
-          que ele funciona conforme o esperado.
-        </p>
-
-        <Box
-          component="section"
+    <>
+      <Grid container={true} sx={{ overflow: "hidden", height: "100vh" }}>
+        <Grid
+          container={true}
+          size={{ xs: 12 }}
           sx={{
-            p: 2,
-            border: "3px dashed grey",
-            width: "50%",
-            margin: "auto",
-            bgcolor: "#999",
+            ...styles.centerMyBox,
+            border: `1px solid transparent`,
+            backgroundColor: "#f0f0f0",
+            height: "40vh",
+            paddingBottom: "25vh",
           }}
-        />
-
-        <div>
-          <h2>4. Crie um componente de Card em seu projeto</h2>
-          <p>
-            Crie e teste seu componente de card dentro do projeto para confirmar
-            que ele funciona conforme o esperado.
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              margin: "auto",
-            }}
+        >
+          <Grid
+            item={true}
+            size={{ xs: 4 }}
+            onClick={() => navigate("/dashboard")}
           >
-            <Card sx={{ maxWidth: 345 }}>
-              <CardContent>
-                <Typography variant="h5" component="div">
-                  Categorias
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Veja as categorias de produtos disponíveis na loja.
-                </Typography>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-        <div>
-          <h2>5. Crie um componente de Checkbox em seu projeto</h2>
-          <p>
-            Crie e teste seu componente de checkbox dentro do projeto para
-            confirmar que ele funciona conforme o esperado.
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              margin: "auto",
-            }}
+            <IconButton
+              sx={{
+                ...styles.iconButton,
+                color: `${theme.palette.primary.main}`,
+                borderRadius: "50%", // Cria o círculo
+                border: `2px solid ${theme.palette.primary.main}`, // Cor da borda
+              }}
+            >
+              {
+                <SignalCellularAltIcon
+                  fontSize="large"
+                  sx={{ ...styles.icon }}
+                />
+              }
+            </IconButton>
+            <MyBox>
+              <Typography sx={styles.text2}>52,5 cm</Typography>
+              <Typography sx={styles.text3}>Comprimento</Typography>
+            </MyBox>
+          </Grid>
+          <Grid item={true} size={{ xs: 4 }}>
+            <MyAvatar
+              src={baby}
+              sx={{ ...styles.avatar, paddingTop: "15px" }}
+            />
+            <MyBox>
+              <Typography sx={{ ...styles.text1, wordWrap: "break-word" }}>
+                Helena
+              </Typography>
+              <Typography sx={{ ...styles.text3 }}>X Dia(s)</Typography>
+            </MyBox>
+          </Grid>
+          <Grid
+            item={true}
+            size={{ xs: 4 }}
+            onClick={() => navigate("/settings")}
           >
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Label"
-              />
-              <FormControlLabel
-                required
-                control={<Checkbox />}
-                label="Required"
-              />
-              <FormControlLabel
-                disabled
-                control={<Checkbox />}
-                label="Disabled"
-              />
-            </FormGroup>
-          </div>
-        </div>
-        <div>
-          <h2>6. Crie um componente de Container em seu projeto</h2>
-          <p>
-            Crie e teste seu componente de container dentro do projeto para
-            confirmar que ele funciona conforme o esperado.
-          </p>
-          <Container
+            <IconButton
+              sx={{
+                ...styles.iconButton,
+                color: `${theme.palette.primary.main}`,
+                borderRadius: "50%", // Cria o círculo
+                border: `2px solid ${theme.palette.primary.main}`, // Cor da borda
+              }}
+            >
+              {<SettingsIcon sx={{ ...styles.icon }} />}
+            </IconButton>
+            <MyBox>
+              <Typography sx={{ ...styles.text2 }}>3,27 kg</Typography>
+              <Typography sx={{ ...styles.text3 }}>Peso</Typography>
+            </MyBox>
+          </Grid>
+        </Grid>
+        {/* grid debaixo */}
+
+        <Grid
+          container={true}
+          size={{ xs: 12 }}
+          sx={{
+            position: "relative",
+            bottom: "0px",
+            height: "fit-content",
+          }}
+        >
+          {/* container de tarefas */}
+
+          <Grid
+            container={true}
             sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 1,
-              justifyContent: "center",
+              ...styles.centerMyBox,
+              backgroundColor: `${theme.palette.primary.main}`,
             }}
           >
-            <Box
+            {ACTIONS.map((action, idx) => {
+              return (
+                <Grid
+                  index={idx}
+                  item={true}
+                  size={{ xs: 4 }}
+                  sx={{ bottom: "12vh", position: "relative" }}
+                >
+                  <CardNewItem {...action} />
+                </Grid>
+              );
+            })}
+
+            <Grid
+              item={true}
+              size={{ xs: 12 }}
               sx={{
-                bgcolor: "lightblue",
-                width: 150,
-                height: 100,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 2,
+                // background: "red",
+                overflow: "auto",
+                height: "38vh",
+                marginTop: "-30px",
+                width: "100%",
               }}
             >
-              Bloco 1
-            </Box>
-
-            <Box
-              sx={{
-                bgcolor: "lightgreen",
-                width: 100,
-                height: 150,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 2,
-              }}
-            >
-              Bloco 2
-            </Box>
-
-            <Box
-              sx={{
-                bgcolor: "lightcoral",
-                width: 300,
-                height: 150,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 2,
-              }}
-            >
-              Bloco 3
-            </Box>
-
-            <Box
-              sx={{
-                bgcolor: "yellow",
-                width: 400,
-                height: 100,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 2,
-              }}
-            >
-              Bloco 4
-            </Box>
-
-            {/* Bloco 5 */}
-            <Box
-              sx={{
-                bgcolor: "lightpink",
-                width: 150,
-                height: 150,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: 2,
-              }}
-            >
-              Bloco 5
-            </Box>
-          </Container>
-        </div>
-
-        <div>
-          <h2>
-            7. Instale a biblioteca adicionar @mui/x-date-pickers em seu projeto
-          </h2>
-          <p>
-            A biblioteca mui x-date-picker é uma lib a parte que precisa ser
-            instalada antes de construir o componente de datepicker e
-            datetimepicker.
-          </p>
-        </div>
-
-        <div>
-          <h2>
-            8. Crie um componente de DatePicker e outro de DateTimePicker em seu
-            projeto
-          </h2>
-          <p>
-            Crie e teste seus componentes de datePicker e DateTimePicker dentro
-            do projeto para confirmar que eles funcionam conforme o esperado.
-          </p>
-          <DatePickerComponent format="DD / MM / YYYY" />
-          <DateTimePickerComponent format="DD / MM / YYYY HH:mm" ampm={false} />
-        </div>
-
-        <div>
-          <h2>9. Crie um componente de Fab em seu projeto</h2>
-          <p>
-            Crie e teste seus componentes de datePicker e DateTimePicker dentro
-            do projeto para confirmar que eles funcionam conforme o esperado.
-          </p>
-
-          <Fab>
-            <Avatar src={cart} sx={{ width: 48, height: 48 }}></Avatar>
-          </Fab>
-        </div>
-
-        <div>
-          <h2>11. Crie um componente de IconButton em seu projeto</h2>
-          <p>
-            Crie e teste seus componentes de datePicker e DateTimePicker dentro
-            do projeto para confirmar que eles funcionam conforme o esperado.
-          </p>
-          <IconButton aria-label="cart">
-            <ShoppingCartIcon fontSize="large" />
-          </IconButton>
-        </div>
-
-        <div>
-          <h2>12. Crie um componente de SnackBar em seu projeto</h2>
-          <p>
-            Crie e teste seu componente de snackBar dentro do projeto para
-            confirmar que ele funciona conforme o esperado.
-          </p>
-
-          <Snackbar
-            open={open}
-            autoHideDuration={6000}
-            action={
-              <IconButton
-                size="small"
-                aria-label="close"
-                color="inherit"
-                onClick={handleClose}
-              >
-                <CloseIcon fontSize="small" />
-              </IconButton>
-            }
-            onClose={handleClose}
-            message="Você está na página home."
-          />
-        </div>
-
-        <div>
-          <h2>13. Crie um componente de Switch em seu projeto</h2>
-          <p>
-            Crie e teste seu componente de switch dentro do projeto para
-            confirmar que ele funciona conforme o esperado.
-          </p>
-          <SwitchComponent />
-        </div>
-
-        <div>
-          <h2>14. Crie um componente de Tab em seu projeto</h2>
-          <p>
-            Crie e teste seu componente de tab dentro do projeto para confirmar
-            que ele funciona conforme o esperado.
-          </p>
-          <TabComponent />
-        </div>
-      </div>
-    </div>
+              <CustomList items={items} />
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 
 export default Home;
+
+const styles = {
+  centerMyBox: {
+    display: "flex",
+    flexWrap: "wrap",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-end",
+  },
+  iconButton: {
+    height: "2.5em",
+    width: "2.5em",
+  },
+  icon: {
+    fontSize: "2em",
+  },
+  MyBoxText: {
+    flexDirection: "column",
+    marginTop: ".5em",
+  },
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 0,
+    marginBottom: 1,
+  },
+  text1: {
+    fontSize: "1.2em",
+
+    fontWeight: "600",
+    fontFamily: "'Lato', sans-serif",
+  },
+  text2: {
+    fontSize: "1em",
+    marginTop: "0.5em",
+    fontWeight: "600",
+  },
+  text3: {
+    fontSize: "1em",
+    fontWeight: "400",
+  },
+};
