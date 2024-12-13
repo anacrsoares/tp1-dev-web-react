@@ -22,8 +22,8 @@ import Protected from "./protected";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<Protected />}>
+    <Route path="/">
+      <Route element={<Protected />}>
         <Route
           index
           element={<Home />}
@@ -75,8 +75,8 @@ const router = createBrowserRouter(
   )
 );
 
-const Routes = () => {
+const Index = () => {
   return <RouterProvider router={router} />;
 };
 
-export default Routes;
+export default Index;
