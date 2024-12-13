@@ -11,7 +11,7 @@ export { default as MyCard } from "./MyCard";
 export { default as CardNewItem } from "./custom/cardNewItem";
 export { default as MyCheckBox } from "./MyCheckBox";
 export { default as MyContainer } from "./MyContainer";
-export { default as MySnackBar } from "./MySnackBar";
+export { default as SnackBar } from "./SnackBar";
 export { default as MyFab } from "./MyFab";
 export { default as Grid } from "./Grid";
 export { default as CustomList } from "./custom/customList";

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Grid, MyAvatar } from "../components";
 import { Button16, Alert } from "../components";
 import logo from "../assets/img/logo.png";
-import { signIn, signUp } from "../services/authentication";
+import { signUp } from "../services/authentication";
 import { useState } from "react";
 import { validateEmail, validatePassword } from "../utils/validators";
 
@@ -32,12 +32,10 @@ const SignUp = () => {
 
   const verifyRegister = async () => {
     const emailValidation = validateEmail(data.email.value);
-    const passwordValidation = validatePassword(data.password.value);
-
-    let { data: response, error } = await signUp(
-      data.email.value,
+    const passwordValidation = validatePassword(
       data.password.value,
-      supabase
+      data.confirm_password.value,
+      showAlertMessage
     );
 
     setData((currentData) => ({
@@ -52,6 +50,11 @@ const SignUp = () => {
         error: passwordValidation.error,
         helperText: passwordValidation.helperText,
       },
+      confirm_password: {
+        value: currentData.confirm_password.value,
+        error: passwordValidation.error,
+        helperText: passwordValidation.helperText,
+      },
     }));
 
     if (emailValidation.error || passwordValidation.error) {
@@ -59,18 +62,21 @@ const SignUp = () => {
     }
 
     if (data.password.value !== data.confirm_password.value) {
-      showAlertMessage("As senhas não coincidem", "warning");
+      showAlertMessage("As senhas não coincidem", "error");
       return;
     }
 
-    {
-      /*Validação final*/
-    }
+    let { data: response, error } = await signUp(
+      data.email.value,
+      data.password.value,
+      supabase
+    );
+
     if (error) {
       if (
         error.toString().indexOf("AuthApiError: User already registered") !== -1
       ) {
-        showSnackMessage("Usuário registrado");
+        showSnackMessage("Usuário já é registrado");
       } else {
         showSnackMessage(error.toString());
       }

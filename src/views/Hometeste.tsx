@@ -17,7 +17,7 @@ import {
   MyBox,
   MyCheckBox,
   MyContainer,
-  MySnackBar,
+  SnackBar,
   MyFab,
 } from "../components";
 
@@ -161,7 +161,7 @@ const Hometeste: React.FC = () => {
                 confirmar que ele funciona conforme o esperado.
               </p>
 
-              <MySnackBar />
+              <SnackBar />
             </div>
 
             <div>

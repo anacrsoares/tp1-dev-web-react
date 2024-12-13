@@ -1,6 +1,7 @@
 import { createContext, useContext } from "react";
 import { Alert } from "@mui/material";
 import { useState } from "react";
+import { SnackBar } from "./components";
 
 // Configurando o supabase
 import { createClient } from "@supabase/supabase-js";
@@ -13,7 +14,7 @@ const supabase = createClient(
 
 // 1st step - App Context nulo
 const AppContext = createContext(null);
-const timeoutDuration = 6000;
+const timeoutDuration = 4000;
 
 // 2nd step - Provedor do contexto
 const AppProvider = ({ children }) => {
@@ -62,6 +63,13 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider value={sharedState}>
       {children}
+      <SnackBar
+        autoHideDuration={timeoutDuration}
+        onClose={handleClose}
+        open={snackOpen}
+        message={snackMessage}
+      />
+
       {alertMessage ? (
         <Alert severity={alertSeverity} sx={{ mt: -10 }}>
           {alertMessage}
