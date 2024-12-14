@@ -8,6 +8,7 @@ import {
 import Dashboard from "../views/Dashboard";
 import Forms from "../views/Forms";
 import Home from "../views/Home";
+import Hometp2 from "../views/Hometeste";
 import Settings from "../views/Settings";
 import Signin from "../views/Signin";
 import Signup from "../views/Signup";
@@ -16,14 +17,20 @@ import {
   isAuthenticated,
   handleVerificationProtected,
 } from "../services/authentication";
+
 import Protected from "./protected";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<Protected />}>
+    <Route path="/">
+      <Route element={<Protected />}>
         <Route
           index
+          element={<Home />}
+          loader={() => handleVerificationProtected()}
+        />
+        <Route
+          path="home" // Rota explícita para "/home"
           element={<Home />}
           loader={() => handleVerificationProtected()}
         />
@@ -59,12 +66,17 @@ const router = createBrowserRouter(
         element={<Signup />}
         loader={() => isAuthenticated()}
       />
+      <Route
+        path="hometp2"
+        element={<Hometp2 />}
+        loader={() => isAuthenticated()}
+      />
     </Route>
   )
 );
 
-const Routes = () => {
+const Index = () => {
   return <RouterProvider router={router} />;
 };
 
-export default Routes;
+export default Index;
