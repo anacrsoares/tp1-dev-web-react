@@ -1,5 +1,5 @@
-import { Card, Box, Typography, Fab } from "@mui/material";
-import { MyBox, MyFab } from "../../components";
+import { Card, Typography, Fab } from "@mui/material";
+import { Box } from "../../components";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 
@@ -16,12 +16,13 @@ export default function CardNewItem({ title, actionType, Icon, color }) {
         height: "fit-content",
       }}
     >
-      <MyBox sx={{ ...styles.containerBox }}>
+      <Box sx={{ ...styles.containerBox }}>
         <Icon sx={{ fontSize: "3rem", color: color }} />
-      </MyBox>
+      </Box>
       <Typography
         sx={{
-          fontWeight: "800",
+          fontSize: "12px",
+          fontWeight: "700",
           width: "100%",
           marginTop: "0.5rem",
           wordWrap: "break-word",
@@ -29,15 +30,20 @@ export default function CardNewItem({ title, actionType, Icon, color }) {
       >
         {title}
       </Typography>
-      <MyBox sx={{ ...styles.containerBox }}>
+      <Box sx={{ ...styles.containerBox }}>
         <Typography
-          sx={{ fontWeight: "400", color: "#888", wordWrap: "break-word" }}
+          sx={{
+            fontSize: "12px",
+            fontWeight: "400",
+            color: "#888",
+            wordWrap: "break-word",
+          }}
         >
           Adicionar algo
         </Typography>
-        <MyBox></MyBox>
-      </MyBox>
-      <MyBox sx={{ ...styles.containerBox }}>
+        <Box></Box>
+      </Box>
+      <Box sx={{ ...styles.containerBox }}>
         <Fab
           onClick={() => {
             navigate(`new/${actionType}`);
@@ -50,7 +56,7 @@ export default function CardNewItem({ title, actionType, Icon, color }) {
         >
           {<AddIcon sx={{ color: color }} />}
         </Fab>
-      </MyBox>
+      </Box>
     </Card>
   );
 }

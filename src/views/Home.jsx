@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import { CardNewItem, Grid, MyAvatar, MyBox, CustomList } from "../components";
+import { CardNewItem, Grid, MyAvatar, Box, CustomList } from "../components";
 
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import { ACTIONS } from "../constants/actions";
 
-const Home: React.FC = () => {
+const Home = () => {
   const navigate = useNavigate();
   const theme = useTheme();
 
@@ -32,7 +32,14 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Grid container={true} sx={{ overflow: "hidden", height: "100vh" }}>
+      <Grid
+        container={true}
+        sx={{
+          overflow: "hidden",
+          height: "100vh",
+          backgroundColor: `${theme.palette.primary.main}`,
+        }}
+      >
         <Grid
           container={true}
           size={{ xs: 12 }}
@@ -40,8 +47,8 @@ const Home: React.FC = () => {
             ...styles.centerMyBox,
             border: `1px solid transparent`,
             backgroundColor: "#f0f0f0",
-            height: "40vh",
-            paddingBottom: "25vh",
+            height: "300px",
+            paddingBottom: "110px",
           }}
         >
           <Grid
@@ -64,22 +71,22 @@ const Home: React.FC = () => {
                 />
               }
             </IconButton>
-            <MyBox>
+            <Box>
               <Typography sx={styles.text2}>52,5 cm</Typography>
               <Typography sx={styles.text3}>Comprimento</Typography>
-            </MyBox>
+            </Box>
           </Grid>
           <Grid item={true} size={{ xs: 4 }}>
             <MyAvatar
               src={baby}
               sx={{ ...styles.avatar, paddingTop: "15px" }}
             />
-            <MyBox>
+            <Box>
               <Typography sx={{ ...styles.text1, wordWrap: "break-word" }}>
                 Helena
               </Typography>
               <Typography sx={{ ...styles.text3 }}>X Dia(s)</Typography>
-            </MyBox>
+            </Box>
           </Grid>
           <Grid
             item={true}
@@ -96,59 +103,51 @@ const Home: React.FC = () => {
             >
               {<SettingsIcon sx={{ ...styles.icon }} />}
             </IconButton>
-            <MyBox>
+            <Box>
               <Typography sx={{ ...styles.text2 }}>3,27 kg</Typography>
               <Typography sx={{ ...styles.text3 }}>Peso</Typography>
-            </MyBox>
+            </Box>
           </Grid>
-        </Grid>
-        {/* grid debaixo */}
 
-        <Grid
-          container={true}
-          size={{ xs: 12 }}
-          sx={{
-            position: "relative",
-            bottom: "0px",
-            height: "fit-content",
-          }}
-        >
           {/* container de tarefas */}
 
-          <Grid
-            container={true}
-            sx={{
-              ...styles.centerMyBox,
-              backgroundColor: `${theme.palette.primary.main}`,
-            }}
-          >
-            {ACTIONS.map((action, idx) => {
-              return (
-                <Grid
-                  index={idx}
-                  item={true}
-                  size={{ xs: 4 }}
-                  sx={{ bottom: "12vh", position: "relative" }}
-                >
-                  <CardNewItem {...action} />
-                </Grid>
-              );
-            })}
-
+          <Grid container={true} size={{ xs: 12 }}>
             <Grid
-              item={true}
-              size={{ xs: 12 }}
+              container={true}
               sx={{
-                // background: "red",
-                overflow: "auto",
-                height: "38vh",
-                marginTop: "-30px",
-                width: "100%",
+                ...styles.centerMyBox,
+                position: "relative",
+                top: "20px",
               }}
             >
-              <CustomList items={items} />
+              {ACTIONS.map((action, idx) => {
+                return (
+                  <Grid index={idx} item={true} size={{ xs: 4 }} s>
+                    <CardNewItem {...action} />
+                  </Grid>
+                );
+              })}
             </Grid>
+            {/* fim container de tarefas */}
           </Grid>
+
+          {/* container de listagem de tarefas */}
+        </Grid>
+        <Grid
+          item={true}
+          size={{ xs: 12 }}
+          sx={{
+            overflow: "auto",
+            position: "relative",
+            top: "45px",
+            height: "255px",
+            width: "100%",
+            paddingBottom: "10px",
+            paddingLeft: "10px",
+            paddingRight: "10px",
+          }}
+        >
+          <CustomList items={items} />
         </Grid>
       </Grid>
     </>

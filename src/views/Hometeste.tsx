@@ -9,12 +9,11 @@ import { useAppContext } from "../Context";
 
 import {
   DatePickerComponent,
-  DateTimePickerComponent,
   SwitchComponent,
   TabComponent,
   Alert,
   MyAvatar,
-  MyBox,
+  Box,
   MyCheckBox,
   MyContainer,
   SnackBar,
@@ -58,7 +57,7 @@ const Hometeste: React.FC = () => {
             que ele funciona conforme o esperado.
           </p>
 
-          <MyBox />
+          <Box />
 
           <div>
             <h2>4. Crie um componente de Card em seu projeto</h2>
@@ -125,11 +124,11 @@ const Hometeste: React.FC = () => {
                 dentro do projeto para confirmar que eles funcionam conforme o
                 esperado.
               </p>
-              <DatePickerComponent format="DD / MM / YYYY" />
+              {/* <DatePickerComponent format="DD / MM / YYYY" />
               <DateTimePickerComponent
                 format="DD / MM / YYYY HH:mm"
                 ampm={false}
-              />
+              /> */}
             </div>
 
             <div>
