@@ -14,21 +14,27 @@ const Home = () => {
   const navigate = useNavigate();
   const theme = useTheme();
 
-  const items = [
-    { action_type: 1 },
-    { action_type: 2 },
-    { action_type: 3 },
-    { action_type: 3 },
-    { action_type: 2 },
-    { action_type: 1 },
-    { action_type: 1 },
-    { action_type: 1 },
-    { action_type: 1 },
-    { action_type: 1 },
-    { action_type: 1 },
-    { action_type: 1 },
-    { action_type: 1 },
-  ];
+  const label = { inputProps: { "aria-label": "Size switch demo" } };
+
+  // Configura o timeout apenas uma vez usando useEffect
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setOpen(true);
+    }, 2000);
+
+    // Limpa o timeout ao desmontar o componente
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return; // Evita fechar o Snackbar se clicar fora
+    }
+    setOpen(false); // Atualiza o estado para fechar o Snackbar
+  };
 
   return (
     <>
@@ -155,45 +161,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const styles = {
-  centerMyBox: {
-    display: "flex",
-    flexWrap: "wrap",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "flex-end",
-  },
-  iconButton: {
-    height: "2.5em",
-    width: "2.5em",
-  },
-  icon: {
-    fontSize: "2em",
-  },
-  MyBoxText: {
-    flexDirection: "column",
-    marginTop: ".5em",
-  },
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 0,
-    marginBottom: 1,
-  },
-  text1: {
-    fontSize: "1.2em",
-
-    fontWeight: "600",
-    fontFamily: "'Lato', sans-serif",
-  },
-  text2: {
-    fontSize: "1em",
-    marginTop: "0.5em",
-    fontWeight: "600",
-  },
-  text3: {
-    fontSize: "1em",
-    fontWeight: "400",
-  },
-};
