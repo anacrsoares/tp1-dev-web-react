@@ -1,0 +1,116 @@
+feat: Criar formulário de autenticação na tela de login
+
+Mais:
+- Adicionado input de login e senha;
+- Adicionado botão de entrar;
+- Adicionar link para esqueci minha senha;
+- Modal de esqueci minha senha;
+- Link para criar conta.
+
+Resolves: #PROJ-3340 #PROJ-4567
+
+
+chore: Instalar a biblioteca Material UI e suas dependências no projeto
+
+Mais:
+- Adicionada biblioteca MUI;
+- Instaladas dependências necessárias do MUI;
+
+Resolves: #15
+
+chore: Criar estrutura de pastas no projeto
+
+Mais:
+- Adicionadas as pastas estruturais na pasta `src`:
+  - `components`: para os componentes de UI
+  - `data`: para armazenamento de dados estáticos ou mockados
+  - `interfaces`: para definição de tipos e interfaces (TypeScript)
+  - `services`: para lógica de serviços e chamadas de API
+  - `tests`: para arquivos de teste
+  - `utils`: para funções utilitárias e helpers
+   - `views`: para organizar as páginas principais e layouts do aplicativo
+
+Resolves: #14
+
+
+fix: Adicionar @emotion/react e @emotion/styled como dependências do MUI
+
+Correção da tarefa 15:
+- Incluídas as bibliotecas @emotion/react e @emotion/styled, necessárias para o funcionamento correto do Material UI.
+- Essas dependências são essenciais para o sistema de estilização do MUI.
+
+Resolves: #15
+
+
+chore: Adicionar arquivo tsconfig.json para configuração do TypeScript
+
+Mais:
+- Criado o arquivo `tsconfig.json` para configurar o TypeScript no projeto.
+- Configurações incluem suporte para JSX, resolução de módulos Node e configurações de segurança e consistência no código.
+
+Resolves: #extra
+
+chore: Instalar a biblioteca react-router-dom para configuração de rotas
+
+Mais:
+- Adicionada a biblioteca `react-router-dom` ao projeto para configurar e gerenciar rotas.
+- Preparação para implementar navegação entre diferentes páginas e componentes
+- Comandos:
+    - yarn add react-router-dom
+    - yarn add @types/react-router-dom --dev
+
+Resolves: #5
+
+
+
+chore: Configurar rotas e estrutura de views no projeto
+
+Mais:
+- Configurada a biblioteca `react-router-dom` para gerenciamento de rotas.
+- Criadas rotas para as seguintes páginas:
+  - `Home`: pasta `views/Home.tsx` com estrutura inicial para futura tela de home.
+  - `SignIn`: pasta `views/SignIn.tsx` com estrutura inicial para futura tela de login.
+  - `SignUp`: pasta `views/SignUp.tsx` com estrutura inicial para futura tela de cadastro.
+  - `Dashboard`: pasta `views/Dashboard.tsx` com estrutura inicial para futura tela de relatórios.
+  - `Settings`: pasta `views/Settings.tsx` com estrutura inicial para futura tela de configurações.
+  - `Form`: pasta `views/Form.tsx` com estrutura inicial para futura tela de cadastro/edição de dados.
+- Configuradas rotas públicas e privadas:
+  - `SignIn` e `SignUp` como rotas públicas.
+  - `Home`, `Dashboard`, `Settings` e `Form` como rotas privadas, acessíveis apenas para usuários autenticados.
+  - Componentização dos arquivos tsx
+
+Resolves: #6, #7, #8, #9, #10, #11, #12, #13
+
+
+chore: Instalar a biblioteca Vite para configuração do projeto
+
+Mais:
+- Adicionada a biblioteca Vite ao projeto para utilizar um ambiente de desenvolvimento rápido e eficiente.
+- Preparação para configurar o Vite em um projeto existente.
+
+Resolves: #3
+
+
+chore: Instalar a biblioteca SASS para suporte a SCSS no projeto
+
+Mais:
+- Adicionada a biblioteca `sass` para permitir o uso de arquivos SCSS.
+
+Resolves: #1
+
+
+feat: criar componente de botão para testar o funcionamento do MUI
+
+Mais:
+  - Criei um componente de botão (`Button`) dentro do projeto para testar se o Material-UI (MUI) está funcionando corretamente.
+  Resolves: #16
+
+
+chore: Alterar arquivos .css para .scss e configurar suporte a SCSS
+
+Mais:
+- Renomeados os arquivos de estilo de `.css` para `.scss`.
+- Ajustadas as importações no projeto para refletir as novas extensões.
+- Testado o suporte a SCSS após a instalação da biblioteca `sass` para garantir que os estilos estão sendo aplicados corretamente.
+
+Resolves: #2
