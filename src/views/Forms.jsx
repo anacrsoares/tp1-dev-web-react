@@ -35,7 +35,7 @@ const Form = () => {
 
   const loadData = async (id) => {
     if (id) {
-      const result = await get("action_students", [
+      const result = await get("actions_baby", [
         { field: "id", value: id },
         { field: "user_id", value: getUser().id },
       ]);
@@ -88,10 +88,10 @@ const Form = () => {
                 const fields = validateFields(data, actionType);
                 if (fields.length === 0) {
                   if (id) {
-                    await update("action_students", data, id);
+                    await update("actions_baby", data, id);
                   } else {
                     data.user_id = getUser().id;
-                    await save("action_students", data);
+                    await save("actions_baby", data);
                   }
                   showAlertMessage(
                     `Item ${id ? "editado" : "criado"} com sucesso!!!`,

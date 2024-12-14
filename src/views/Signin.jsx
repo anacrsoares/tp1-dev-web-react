@@ -1,7 +1,7 @@
 import { useAppContext } from "../Context";
 import { Typography, TextField, Button, Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { Grid, MyAvatar } from "../components";
+import { Grid, Avatar } from "../components";
 import { Button16 } from "../components";
 import logo from "../assets/img/logo.png";
 import { signIn } from "../services/authentication";
@@ -48,7 +48,7 @@ const SignIn = () => {
     >
       <Grid container={true} size={{ xs: 12 }} sx={{ ...styles.centerBox }}>
         <Grid item={true}>
-          <MyAvatar sx={{ width: 180, height: 180, padding: 2 }} src={logo} />
+          <Avatar sx={{ width: 180, height: 180, padding: 2 }} src={logo} />
         </Grid>
       </Grid>
 

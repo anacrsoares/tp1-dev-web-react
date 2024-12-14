@@ -1,40 +1,48 @@
+import { IconButton } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import { CardNewItem, Grid, MyAvatar, Box, CustomList } from "../components";
+import {
+  Grid,
+  Avatar,
+  Box,
+  Typography,
+  CardNewItem,
+  CustomList,
+} from "../components";
+import baby from "../assets/img/baby.png";
 
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 import SettingsIcon from "@mui/icons-material/Settings";
 
-import { IconButton, Typography } from "@mui/material";
-import baby from "../assets/img/baby.png";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { ACTIONS } from "../constants/actions";
+import { get, list } from "../services/supabasedb";
+import { calculateDuration, getUser } from "../utils/core";
+import { useAppContext } from "../Context";
 
 const Home = () => {
+  const { translate } = useAppContext();
   const navigate = useNavigate();
   const theme = useTheme();
+  const user = getUser();
+  const [data, setData] = useState([]);
+  const [profile, setProfile] = useState({});
 
-  const label = { inputProps: { "aria-label": "Size switch demo" } };
+  const loadData = async () => {
+    const d = await list("actions_baby");
+    const profileData = await get("actions_baby", [
+      { field: "user_id", value: user.id },
+    ]);
+    setProfile(profileData);
 
-  // Configura o timeout apenas uma vez usando useEffect
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setOpen(true);
-    }, 2000);
-
-    // Limpa o timeout ao desmontar o componente
-    return () => clearTimeout(timeout);
-  }, []);
-
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return; // Evita fechar o Snackbar se clicar fora
+    if (d) {
+      setData(d);
     }
-    setOpen(false); // Atualiza o estado para fechar o Snackbar
   };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return (
     <>
@@ -83,10 +91,7 @@ const Home = () => {
             </Box>
           </Grid>
           <Grid item={true} size={{ xs: 4 }}>
-            <MyAvatar
-              src={baby}
-              sx={{ ...styles.avatar, paddingTop: "15px" }}
-            />
+            <Avatar src={baby} sx={{ ...styles.avatar, paddingTop: "15px" }} />
             <Box>
               <Typography sx={{ ...styles.text1, wordWrap: "break-word" }}>
                 Helena
@@ -153,7 +158,7 @@ const Home = () => {
             paddingRight: "10px",
           }}
         >
-          <CustomList items={items} />
+          <CustomList items={data} />
         </Grid>
       </Grid>
     </>
@@ -161,3 +166,45 @@ const Home = () => {
 };
 
 export default Home;
+
+const styles = {
+  centerMyBox: {
+    display: "flex",
+    flexWrap: "wrap",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-end",
+  },
+  iconButton: {
+    height: "2.5em",
+    width: "2.5em",
+  },
+  icon: {
+    fontSize: "2em",
+  },
+  MyBoxText: {
+    flexDirection: "column",
+    marginTop: ".5em",
+  },
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 0,
+    marginBottom: 1,
+  },
+  text1: {
+    fontSize: "1.2em",
+
+    fontWeight: "600",
+    fontFamily: "'Lato', sans-serif",
+  },
+  text2: {
+    fontSize: "1em",
+    marginTop: "0.5em",
+    fontWeight: "600",
+  },
+  text3: {
+    fontSize: "1em",
+    fontWeight: "400",
+  },
+};

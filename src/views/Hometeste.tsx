@@ -12,7 +12,7 @@ import {
   SwitchComponent,
   TabComponent,
   Alert,
-  MyAvatar,
+  Avatar,
   Box,
   MyCheckBox,
   MyContainer,
@@ -49,7 +49,7 @@ const Hometeste: React.FC = () => {
               Crie e teste seu componente de avatar dentro do projeto para
               confirmar que ele funciona conforme o esperado.
             </p>
-            <MyAvatar />
+            <Avatar />
           </div>
           <h2>3. Crie um componente de Box em seu projeto</h2>
           <p>
